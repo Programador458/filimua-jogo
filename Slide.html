@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide | Filimua Fjm</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .content{
+            width: 935px;
+            height: 520px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            overflow: hidden;
+            overflow-x: auto;
+            border-radius: 20px;
+            box-shadow: 4px 4px 4px 2px black;
+        }
+
+        .content::-webkit-scrollbar{
+            display: none;
+        }
+
+        .slides{
+            display: flex;
+            width: 500%;
+            height: 100%;
+        }
+
+        input{
+            display: none;
+        }
+
+        .imagens{
+            width: 20%;
+            transition: .6s;
+        }
+
+        .imagens img{
+            width: 100%;
+            height: 100%;
+        }
+
+        .navega{
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            display: flex;
+            gap: 40px;
+            transform: translate(-50%);
+        }
+
+        .bar{
+            width: 30px;
+            height: 30px;
+            opacity: 0.5;
+            border-radius: 30px;
+            border: 2px solid white;
+            animation: bar 2s alternate infinite;
+        }
+
+        .bar:hover{
+            background-color: white;
+            transition: .6s ease;
+            opacity:1;
+        }
+
+        @keyframes bar{
+            form{
+                opacity: 0.5;
+                outline: 2px solid black;
+            }
+            to{
+                opacity: 1;
+                outline: 2px solid white;
+            }
+        }
+
+        #slide1:checked ~ .picture{
+            margin-left: 0;
+        }
+
+        #slide2:checked ~ .picture{
+            margin-left: -20%;
+        }
+
+        #slide3:checked ~ .picture{
+            margin-left: -40%;
+        }
+
+        #slide4:checked ~ .picture{
+            margin-left: -60%;
+        }
+
+        #slide5:checked ~ .picture{
+            margin-left: -80%;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="content">
+
+        <div class="slides">
+
+            <!--Inputs Tipo Rádio-->
+
+            <input type="radio" name="slide" id="slide1" checked>
+            <input type="radio" name="slide" id="slide2">
+            <input type="radio" name="slide" id="slide3">
+            <input type="radio" name="slide" id="slide4">
+            <input type="radio" name="slide" id="slide5">
+
+            <div class="imagens picture">
+                <img src="../pictures/filimua.jpg" alt="Filimua Imagem">
+            </div>
+            <div class="imagens">
+                <img src="../pictures/filimua 16.jpg" alt="Filimua Imagem">
+            </div>
+
+            <div class="imagens">               
+                <img src="../pictures/filimua novas 1.jpg" alt="Filimua Imagem">
+            </div>
+
+            <div class="imagens">
+                <img src="../pictures/filimua novas 2.jpg" alt="Filimua Imagem">
+            </div>
+
+            <div class="imagens">
+                <img src="../pictures/filimua novas 4.jpg" alt="Filimua Imagem">
+            </div>
+        </div>
+
+        <div class="navega">
+
+            <label for="slide1" class="bar"></label>
+            <label for="slide2" class="bar"></label>
+            <label for="slide3" class="bar"></label>
+            <label for="slide4" class="bar"></label>
+            <label for="slide5" class="bar"></label>
+        </div>
+    </div>
+    
+    <script>
+
+        let conta = 1;
+
+        setInterval(()=>{
+            document.getElementById('slide' + conta).checked = true;
+            conta++;
+
+            if(conta > 5){
+                conta = 1;
+            }
+        }, 2000)
+    </script>
+</body>
+</html>
